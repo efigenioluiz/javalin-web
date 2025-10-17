@@ -1,5 +1,11 @@
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/controllers/ContatoController.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/models/Agenda.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/config/AppConfig.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/controllers/IndexController.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/models/interfaces/PessoaDAO.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/database/FabricaDeConexao.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/models/Pessoa.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/Main.java
-/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/controllers/CadastroController.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/routes/Rotas.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/models/Contato.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/DAOs/PessoaDAOImpl.java

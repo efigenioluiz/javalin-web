@@ -46,7 +46,7 @@ public class IndexController {
             bw.write(conteudo);
             bw.newLine();
 
-            bw.close(); 
+            bw.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
