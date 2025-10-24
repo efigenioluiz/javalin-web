@@ -18,7 +18,7 @@ public class PessoaDAOImpl implements PessoaDAO {
     }
 
     @Override
-    public void criar(Pessoa pessoa) {
+    public Pessoa criar(Pessoa pessoa) {
         try {
 
             String query = "INSERT INTO Pessoa(nome,idade) VALUES(?,?)";
@@ -35,6 +35,7 @@ public class PessoaDAOImpl implements PessoaDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return pessoa;
     }
 
     @Override

@@ -8,13 +8,21 @@ import java.io.FileWriter;
 
 import javax.print.DocFlavor.STRING;
 
+import com.efigenio.models.Pessoa;
+import com.efigenio.repositories.PessoaRepository;
+
 import io.javalin.http.Handler;
 
 public class IndexController {
     private String caminhoArquivo = "arquivo.txt";
 
     public Handler get = ctx -> {
+        PessoaRepository pessoaRepository = new PessoaRepository();
         gravarArquivoDeTexto();
+
+        Pessoa pessoa = new Pessoa("Mitsugui", 16);
+
+        pessoaRepository.salvarPessoa(pessoa);
 
         lerArquivoDeTexto();
 
