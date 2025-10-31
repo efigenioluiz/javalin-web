@@ -16,6 +16,12 @@ public class AppConfig {
 
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public", Location.CLASSPATH);
+
+            config.staticFiles.add(staticFiles -> {
+                staticFiles.hostedPath = "/uploads";                    // URL pública
+                staticFiles.directory = "src/main/resources/uploads";   // caminho no servidor
+                staticFiles.location = Location.EXTERNAL;
+            });
             config.fileRenderer(new JavalinFreemarker(cfg));
         }).start(7000);
 

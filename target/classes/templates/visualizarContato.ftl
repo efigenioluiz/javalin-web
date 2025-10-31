@@ -7,8 +7,8 @@
 </head>
 <body>
 
-    <# if mensagem.equals(String)
+    <p>${imagem}</p>
+    <img src="${imagem}" alt="Sucesso" width="100" height="100">
 
-    <p><b>Messagem: ${mensagem}</b></p>
 </body>
 </html>

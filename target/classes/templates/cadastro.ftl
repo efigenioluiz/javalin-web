@@ -7,7 +7,11 @@
 </head>
 <body>
 
-    <form action="/contatos" method="post" >
+    <form action="/contatos" enctype="multipart/form-data" method="post" >
+
+        <label for="file">Filename:</label>
+        <input type="file" name="file" id="file"  />
+
         <label for="nome">NOME:</label>
         <input type="text" name="nome">
 
