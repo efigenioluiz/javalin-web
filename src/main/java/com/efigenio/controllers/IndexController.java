@@ -2,19 +2,45 @@ package com.efigenio.controllers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.StringWriter;
+import java.util.Map;
 
 import javax.print.DocFlavor.STRING;
 
+import com.efigenio.config.AppConfig;
 import com.efigenio.models.Pessoa;
 import com.efigenio.repositories.PessoaRepository;
+import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
+import freemarker.template.Template;
 import io.javalin.http.Handler;
 
 public class IndexController {
     private String caminhoArquivo = "arquivo.txt";
+
+    public Handler getRelatorio = ctx -> {
+
+        Template template = AppConfig.freemarkerConfiguration.getTemplate("relatorio.ftl");
+        StringWriter writer = new StringWriter();
+
+        template.process(Map.of("message", "olá"), writer);
+        String html = writer.toString();
+
+        ByteArrayOutputStream pdfStream = new ByteArrayOutputStream();
+        PdfRendererBuilder builder = new PdfRendererBuilder();
+        builder.withHtmlContent(html, null);
+        builder.toStream(pdfStream);
+        builder.run();
+
+        ctx.contentType("application/pdf");
+        ctx.header("Content-Disposition", "attachment; filename=relatorio.pdf");
+        ctx.result(new ByteArrayInputStream(pdfStream.toByteArray()));
+    };
 
     public Handler get = ctx -> {
         PessoaRepository pessoaRepository = new PessoaRepository();

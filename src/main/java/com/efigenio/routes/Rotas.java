@@ -9,16 +9,17 @@ public class Rotas {
     private ContatoController contatoController;
     private IndexController indexController;
 
-    public Rotas(){
+    public Rotas() {
         this.contatoController = new ContatoController();
         this.indexController = new IndexController();
     }
 
-    public void registraRotas(Javalin app){
-        
+    public void registraRotas(Javalin app) {
+
         app.get("/", indexController.get);
         app.get("/cadastro", contatoController.get);
         app.post("/contatos", contatoController.post);
+        app.get("/relatorio", indexController.getRelatorio);
     }
 
 }

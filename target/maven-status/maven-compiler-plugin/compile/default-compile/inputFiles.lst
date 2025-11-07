@@ -1,4 +1,5 @@
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/controllers/ContatoController.java
+/home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/repositories/PessoaRepository.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/models/Agenda.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/config/AppConfig.java
 /home/luiz/IdeaProjects/web-javalin/src/main/java/com/efigenio/controllers/IndexController.java
