@@ -2,6 +2,7 @@ package com.efigenio.DAOs;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,7 +29,15 @@ public class PessoaDAOImpl implements PessoaDAO {
             pstm.setString(1, pessoa.getNome());
             pstm.setInt(2, pessoa.getIdade());
 
-            pstm.execute();
+            pstm.executeUpdate();
+
+            ResultSet resultSet = pstm.getGeneratedKeys();
+            if (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                System.out.println("ID gerado: " + id);
+                // pessoa.setId(idGerado);
+            }
+
 
             pstm.close();
 
