@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.print.DocFlavor.STRING;
@@ -22,6 +23,24 @@ import io.javalin.http.Handler;
 
 public class IndexController {
     private String caminhoArquivo = "arquivo.txt";
+
+    public Handler selectBox = ctx -> {
+
+        // PessoaRepository pessoaRepository = new PessoaRepository();
+
+        Pessoa pessoa = new Pessoa("Efigenio", 25);
+        Pessoa pessoa2 = new Pessoa("Maria", 30);
+        Pessoa pessoa3 = new Pessoa("João", 28);
+
+        Map<String, Pessoa> pessoas = new HashMap<>();
+        pessoas.put(pessoa.getNome(), pessoa);
+        pessoas.put(pessoa2.getNome(), pessoa2);
+        pessoas.put(pessoa3.getNome(), pessoa3);
+
+        System.out.println(pessoas);
+
+        ctx.render("selectbox.ftl", Map.of("pessoas", pessoas));
+    };
 
     public Handler getRelatorio = ctx -> {
 
