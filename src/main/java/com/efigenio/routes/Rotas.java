@@ -20,6 +20,7 @@ public class Rotas {
         app.get("/cadastro", contatoController.get);
         app.post("/contatos", contatoController.post);
         app.get("/relatorio", indexController.getRelatorio);
+        app.get("/grafico", contatoController.grafico);
     }
 
 }
