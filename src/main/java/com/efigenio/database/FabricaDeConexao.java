@@ -9,6 +9,9 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class FabricaDeConexao {
     Dotenv dotenv = Dotenv.load();
 
+    private static int MAX_CONNECTIONS = 5;
+    private Connection[] conexoes = new Connection[MAX_CONNECTIONS];
+
     private static FabricaDeConexao instancia;
     private String nomeBanco = dotenv.get("NOME_BANCO");
     private String usuario = dotenv.get("USUARIO");
@@ -27,6 +30,19 @@ public class FabricaDeConexao {
         return instancia;
     }
 
+    // public Connection getConexao() throws SQLException {
+    //     String url = "jdbc:mysql://" + destino + ":" + porta + "/" + nomeBanco + "?user=" + usuario + "&password="
+    //             + senha;
+
+    //     for (int i = 0; i < MAX_CONNECTIONS; i++) {
+    //         if (instancia.conexoes[i] == null || instancia.conexoes[i].isClosed()) {
+    //             instancia.conexoes[i] = DriverManager.getConnection(url);
+    //             return instancia.conexoes[i];
+    //         }
+    //     }
+    //     throw new SQLException("Máximo de conexões");
+    // }
+
     public Connection getConexao() {
         try {
             String url = "jdbc:mysql://" + destino + ":" + porta + "/" + nomeBanco + "?user=" + usuario + "&password="
@@ -36,5 +52,4 @@ public class FabricaDeConexao {
             throw new RuntimeException("Erro ao tentar conectar com o banco de dados", e);
         }
     }
-
 }
